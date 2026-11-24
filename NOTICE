@@ -1,0 +1,50 @@
+OrbACE
+Copyright (c) 2026 PsiQuantum Corp. All rights reserved.
+
+OrbACE is published and distributed under the Academic Software License v1.0
+(ASL). The grant is for academic non-commercial use only. OrbACE is
+distributed in the hope that it will be useful for non-commercial academic
+research, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the ASL for more
+details.
+
+You should have received a copy of the ASL along with this program in the file
+LICENSE. It is also published at https://github.com/PsiQ/orbace.
+
+The original licensor is PsiQuantum Corp. (https://www.psiquantum.com). For
+commercial use rights, contact PsiQuantum Corp.
+
+The ASL applies to OrbACE's own code. The parts adapted from MACE, listed
+below, remain subject to MACE's MIT License, whose notice is reproduced here as
+that license requires.
+
+-------------------------------------------------------------------------------
+Third-party software
+-------------------------------------------------------------------------------
+
+OrbACE depends on MACE (https://github.com/ACEsuit/mace), installed as the
+separate package mace-torch and not distributed with OrbACE. MACE is licensed
+under the MIT License reproduced below.
+
+The following parts of OrbACE are adapted from MACE:
+
+  * orbace/modules/models.py, class ZBLAtomPair: adapted from ZBLBasis in
+    mace/modules/radial.py.
+  * orbace/modules/models.py, class OrbACE, and
+    orbace/modules/atom_model.py, class AtomOrbACE: the assembly of the
+    equivariant backbone from MACE's interaction, product and readout blocks
+    follows the layout of MACE's own model class.
+
+MIT License
+
+Copyright (c) 2022 ACEsuit/mace
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.

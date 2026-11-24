@@ -1,0 +1,29 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.so
+build/
+dist/
+*.egg-info/
+*.whl
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ---- Datasets and prepared features ----
+bench_data/
+benchmark_h2o/
+test_output/
+data_*/
+adata_*/
+*.npz
+*.h5
+
+# ---- Run outputs (checkpoints, logs, trajectories, timings) ----
+checkpoints/
+results/
+ck_*/
+*.pt
+*.out
+*.err
+md_*.xyz
+timings*.csv

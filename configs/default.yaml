@@ -1,0 +1,88 @@
+# OrbACE Training Configuration
+# Usage: python scripts/train.py --method orbital --config configs/default.yaml
+
+# --- Data ---
+data_dir: ./data
+val_fraction: 0.1
+
+# --- Model Architecture ---
+r_max: 5.0
+num_bessel: 8
+num_polynomial_cutoff: 5
+max_ell: 2
+num_interactions: 3
+hidden_channels: 64
+hidden_irreps: "64x0e + 64x1o + 64x2e"
+mlp_channels: 128
+correlation: 3
+num_species: 200
+n_scalar_features: 10
+n_ao_shell_features: 15
+n_coeff_norm_features: 5
+avg_num_neighbors: 10.0
+radial_MLP: "128,128,128"
+
+# --- Orbital Edge Features ---
+use_chem_edge_features: true
+n_chem_edge_features: 6
+dropout: 0.05
+
+# --- Equivariant Orbital Node Features ---
+use_equivariant_orbital_features: true
+n_equiv_channels: 8
+
+# --- Long-Range ---
+use_long_range: false
+use_multipole_lr: true
+lr_alpha: 0.2
+lr_cutoff: 15.0
+
+# --- Training ---
+n_epochs: 2000
+batch_size: 30
+optimizer: adamw
+lr: 0.001
+weight_decay: 5.0e-5
+amsgrad: true
+energy_weight: 10.0
+forces_weight: 10.0
+stress_weight: 0.0
+patience: 200
+seed: 42
+ema_decay: 0.999
+clip_grad: 10.0
+
+# --- Scheduler (MACE-style) ---
+scheduler: plateau
+scheduler_factor: 0.8
+scheduler_patience: 50
+warmup_epochs: 15
+
+# --- SWA ---
+swa: false
+start_swa: 750
+swa_lr: 0.00025
+
+# --- Stage Two (mild force boost at 60% of training) ---
+stage_two_start: 1200
+stage_two_energy_weight: 10.0
+stage_two_forces_weight: 30.0
+stage_two_stress_weight: 0.0
+stage_two_lr: 0.0
+
+# --- System ---
+device: auto
+default_dtype: float32
+num_workers: 0
+checkpoint_dir: ./checkpoints
+results_dir: ./results
+compute_stress: false
+
+# --- Logging ---
+use_wandb: false
+wandb_project: orbace
+wandb_name: null
+
+# --- Restart / Finetune ---
+restart: null
+foundation_model: null
